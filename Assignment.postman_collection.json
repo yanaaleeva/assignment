@@ -1,0 +1,3833 @@
+{
+	"info": {
+		"_postman_id": "1e886d2a-8623-4cc7-83e9-9d12f69502c2",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21467217"
+	},
+	"item": [
+		{
+			"name": "Word",
+			"item": [
+				{
+					"name": "1_empty API key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Invalid API key. Go to https://docs.rapidapi.com/docs/keys for more info.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/soliloquy",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"soliloquy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2_invalid API key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Invalid API key. Go to https://docs.rapidapi.com/docs/keys for more info.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "76ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/soliloquy",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"soliloquy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3_valid API key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"noun\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Results is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4_PATCH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5_PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6_POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7_DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8_word with invalid language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.success).to.equal(false);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"word not found\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternità",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternità"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9_invalid character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.success).to.equal(false);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"word not found\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/@",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"@"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10_invalid alphabet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Success is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.success).to.equal(false);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"word not found\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/мама",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"мама"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11_word with space",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"ice cream\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"noun\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/ice cream",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"ice cream"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12_hyphenated word",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"mother-in-law\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"noun\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/mother-in-law",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"mother-in-law"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13_empty word",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Word is required.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14_word of 1 char",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"i\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/I",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"I"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15_case insensitive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is case insensitive\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"mother\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/Mother",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"Mother"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16_word length of 2 char",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"we\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"pronoun\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/we",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"we"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17_word max char",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"pneumonoultramicroscopicsilicovolcanoconiosis\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/pneumonoultramicroscopicsilicovolcanoconiosis",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"pneumonoultramicroscopicsilicovolcanoconiosis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "18_word max -1 length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"osteosarchaematosplanchnochondroneuromuelous\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/osteosarchaematosplanchnochondroneuromuelous",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"osteosarchaematosplanchnochondroneuromuelous"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19_number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"5\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"adjective\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20_adverb",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"loudly\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"adverb\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/loudly",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"loudly"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "22_verb",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"sing\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"verb\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/sing",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"sing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "23_pronoun",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"ze\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"pronoun\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/ze",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"ze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "24_preposition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"beneath\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"preposition\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/beneath",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"beneath"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "25_determiner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"these\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"determinative\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/these",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"these"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "26_modal verb",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"would\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.results[0].partOfSpeech).to.equal(\"modal verb\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body contains 'results'\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('results');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/would",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"would"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Word Details",
+			"item": [
+				{
+					"name": "1_Word Details Definitions empty API key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Invalid API key. Go to https://docs.rapidapi.com/docs/keys for more info.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/soliloquy/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"soliloquy",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2_Word Details Definitions invalid API key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Invalid API key. Go to https://docs.rapidapi.com/docs/keys for more info.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "76ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/soliloquy/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"soliloquy",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3_Word Details Definitions valid API key",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Part of speech is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.definitions[0].partOfSpeech).to.equal(\"noun\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).not.to.equal(\"synonyms\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON body contains definitions\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('definitions');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4_PATCH definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity/definitions does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5_PUT definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity/definitions does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6_POST definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity/definitions does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7_DELETE definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity/definitions does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8_synonyms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('synonyms');\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/synonyms",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"synonyms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9_antonyms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('antonyms');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/antonyms",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"antonyms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10_homonyms invalid endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.message).to.equal(\"Endpoint/words/eternity/definitions does not exist\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/homonyms",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"homonyms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11_examples",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('examples');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/examples",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"examples"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12_typeOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Typeof detail is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('typeOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/typeOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"typeOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13_typeof case insensitive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of detail is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('typeOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/typeof",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"typeof"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14_hasTypes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasTypes');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasTypes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15_partOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of detail is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('partOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/partOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"partOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "16_hasParts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of detail is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasParts');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasParts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasParts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "17_instanceOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('instanceOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/instanceOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"instanceOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "18_hasInstances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasInstances');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasInstances",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasInstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "19_similarTo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('similarTo');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/similarTo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"similarTo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "20_also",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('also');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/also",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"also"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "21_entails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('entails');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/entails",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"entails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "22_memberOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('memberOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/memberOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"memberOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "23_hasMembers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasMembers');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasMembers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasMembers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "24_substanceOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('substanceOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/substanceOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"substanceOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "25_hasSubstances",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasSubstances');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasSubstances",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasSubstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "26_inCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"JSON response body is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('inCategory');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/inCategory",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"inCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "27_hasCategories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasCategories');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasCategories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "28_usageOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('usageOf');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/usageOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"usageOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "29_hasUsages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('hasUsages');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/hasUsages",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"hasUsages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "30_inRegion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('inRegion');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/inRegion",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"inRegion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "31_regionOf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('regionOf');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/regionOf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"regionOf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "32_pertainsTo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Word is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body.word).to.equal(\"eternity\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Type of details is correct\", function () {\r",
+									"    const body = pm.response.json()\r",
+									"    pm.expect(body).to.have.property('pertainsTo');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "66ef45eb8amsh5471d964edc9042p12b4dajsn80565566cd70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/words/eternity/pertainsTo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"words",
+								"eternity",
+								"pertainsTo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
